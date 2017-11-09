@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib import admin
 # Create your models here.
 #ACTOR      = Producto
-#PELICULA   = Compras
+#PELICULA   = Compra
 #ACTUACION  = Detalle
 class Producto(models.Model):
     id_categoria = models.CharField(max_length=30)

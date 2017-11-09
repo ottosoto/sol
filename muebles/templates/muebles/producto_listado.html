@@ -1,0 +1,44 @@
+{% extends 'muebles/base.html' %}
+    {% block content %}
+
+      <div class="w3-col l6 m6 s12">
+        <div class="w3-white w3-padding-large w3-card-2 w3-round">
+          <h1>Listado de Productos</h1>
+        <a href="{% url 'producto_nuevo' %}" class="w3-btn w3-blue w3-round w3-margin-bottom"><i class="fa fa-plus"></i> Nuevo Producto</a>
+          <div class="w3-round">
+            <table class="w3-table w3-hoverable w3-centered w3-striped w3-round">
+              <thead class="w3-round">
+                <tr class="w3-blue">
+                  <th>Categoria</th>
+                  <th>Madera</th>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Descripcion</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for orden in Producto %}
+                  <tr>
+                    <td>{{ orden.id }}</td>
+                    <td>{{ orden.id_categoria }}</td>
+                    <td>{{ orden.id_presentacion_madera }}</td>
+                    <td>{{ orden.nombre }}</td>
+                    <td>{{ orden.cantidad }}</td>
+                    <td>{{ orden.precio }}</td>
+                    <td>{{ orden.descripcion }}</td>
+                    <td>
+                      <a href="{% url 'producto_editar' pk=orden.pk %}"><i class="fa fa-pencil-square-o w3-text-blue"></i></a>
+                      <a href="{% url 'producto_borrar' pk=orden.pk %}"><i class="fa fa-trash-o w3-text-red"></i></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+
+    {% endblock %}
